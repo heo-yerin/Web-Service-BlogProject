@@ -28,11 +28,11 @@ export default function Auth() {
     e.preventDefault(); // 기본 폼 동작 차단(페이지새로고침방지)
     try {
       if (email === "" || password === "" || username === "") {
-        alert("모든 항목을입력해주세요.");
+        alert("모든 항목을 입력해주세요.");
         return;
       }
       if (password !== passwordConfirm) {
-        alert("비밀번호가일치하지않습니다.");
+        alert("비밀번호가 일치하지않습니다.");
         return;
       }
       const { data } = await axiosInstance.post("/register", {
@@ -155,6 +155,8 @@ export default function Auth() {
                   id="signup-email"
                   className="auth-form__input"
                   placeholder="이메일"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
 
@@ -166,6 +168,8 @@ export default function Auth() {
                   id="signup-name"
                   className="auth-form__input"
                   placeholder="이름"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
 
@@ -177,6 +181,8 @@ export default function Auth() {
                   id="signup-password"
                   className="auth-form__input"
                   placeholder="비밀번호"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
 
@@ -191,6 +197,8 @@ export default function Auth() {
                   id="signup-confirm-password"
                   className="auth-form__input"
                   placeholder="비밀번호 확인"
+                  value={passwordConfirm}
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
                   required
                 />
 
